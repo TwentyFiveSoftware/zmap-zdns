@@ -162,7 +162,7 @@ func main() {
 
 // loadModule retrieves package description for a given module.
 func loadModule(name string) (*types.Package, error) {
-	conf := packages.Config{Mode: packages.NeedTypes | packages.NeedTypesInfo}
+	conf := packages.Config{Mode: packages.NeedTypes | packages.NeedTypesInfo | packages.NeedDeps}
 	pkgs, err := packages.Load(&conf, name)
 	if err != nil {
 		return nil, err
