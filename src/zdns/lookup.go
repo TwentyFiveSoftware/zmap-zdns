@@ -689,8 +689,14 @@ func (r *Resolver) iterativeLookup(ctx context.Context, qWithMeta *QuestionWithM
 				result.Authorities = make([]any, 0)
 			}
 			if len(result.Additionals) > 0 {
-				r.verboseLog((depth + 2), "Dropping ", len(result.Additionals), " additional answers from output")
-				result.Additionals = make([]any, 0)
+				ednsAdditionals := make([]any, 0)
+				for _, record := range result.Additionals {
+					if _, ok := record.(EDNSAnswer); ok {
+						ednsAdditionals = append(ednsAdditionals, record)
+					}
+				}
+				r.verboseLog((depth + 2), "Dropping ", len(result.Additionals)-len(ednsAdditionals), " additional answers from output")
+				result.Additionals = ednsAdditionals
 			}
 		} else {
 			r.verboseLog((depth + 1), "-> authoritative response found")
