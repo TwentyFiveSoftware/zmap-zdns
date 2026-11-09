@@ -420,7 +420,7 @@ func newHealthTestResolver(t *testing.T, modify func(*ResolverConfig)) (*Resolve
 
 func lookupAgainst(r *Resolver, ctx context.Context, ns NameServer) (Status, error) {
 	q := Question{Type: dns.TypeA, Class: dns.ClassINET, Name: "example.com"}
-	_, _, status, _, err := r.cachedLookup(ctx, q, &ns, ".", 0, true, true, true, nil)
+	_, _, status, _, err := r.cachedLookup(ctx, q, &ns, ".", 0, true, true, true, false, nil)
 	return status, err
 }
 

@@ -595,9 +595,12 @@ func makeSVCBAnswer(cAns *dns.SVCB) SVCBAnswer {
 
 func makeEDNSAnswer(cAns *dns.OPT) EDNSAnswer {
 	opttype := "EDNS"
-	flags := ""
+	var flags []string
 	if cAns.Do() {
-		flags = "do"
+		flags = append(flags, "do")
+	}
+	if cAns.De() {
+		flags = append(flags, "de")
 	}
 	optRes := EDNSAnswer{
 		Type:    opttype + strconv.Itoa(int(cAns.Version())),

@@ -48,6 +48,7 @@ const (
 	defaultMaxDepth              = 10
 	defaultCheckingDisabledBit   = false // Sends DNS packets with the CD bit set
 	defaultAuthenticatedDataBit  = false // Sends DNS packets with the AD bit set
+	defaultDelegationExtensions  = false // Sends DNS packets with the EDNS(0) DE flag set
 	defaultNameServerModeEnabled = false // Treats input as nameservers to query with a static query rather than queries to send to a static name server
 	defaultFollowCNAMEs          = true  // Follow CNAMEs/DNAMEs in iterative queries
 	defaultCacheSize             = 10000
@@ -111,6 +112,7 @@ type ResolverConfig struct {
 	EdnsOptions          []dns.EDNS0
 	CheckingDisabledBit  bool
 	AuthenticatedDataBit bool
+	DelegationExtensions bool
 }
 
 // Validate checks if the ResolverConfig is valid, returns an error describing the issue if it is not.
@@ -269,6 +271,7 @@ func NewResolverConfig() *ResolverConfig {
 		ShouldValidateDNSSEC: defaultShouldValidateDNSSEC,
 		CheckingDisabledBit:  defaultCheckingDisabledBit,
 		AuthenticatedDataBit: defaultAuthenticatedDataBit,
+		DelegationExtensions: defaultDelegationExtensions,
 	}
 }
 
@@ -356,6 +359,7 @@ type Resolver struct {
 	ednsOptions          []dns.EDNS0
 	checkingDisabledBit  bool
 	authenticatedDataBit bool
+	delegationExtensions bool
 	isClosed             bool // true if the resolver has been closed, lookup will panic if called after Close
 }
 
@@ -409,6 +413,7 @@ func InitResolver(config *ResolverConfig) (*Resolver, error) {
 		ednsOptions:          config.EdnsOptions,
 		checkingDisabledBit:  config.CheckingDisabledBit,
 		authenticatedDataBit: config.AuthenticatedDataBit,
+		delegationExtensions: config.DelegationExtensions,
 	}
 	log.SetLevel(r.logLevel)
 	// Deep copy local address so Resolver is independent of the config

@@ -97,7 +97,7 @@ type Edns0Ede struct {
 type EDNSAnswer struct {
 	Type         string             `json:"type" groups:"short,normal,long,trace"`
 	Version      uint8              `json:"version" groups:"short,normal,long,trace"`
-	Flags        string             `json:"flags" groups:"short,normal,long,trace"`
+	Flags        []string           `json:"flags" groups:"short,normal,long,trace"`
 	UDPSize      uint16             `json:"udpsize" groups:"short,normal,long,trace"`
 	LLQ          *Edns0LLQ          `json:"llq,omitempty" groups:"short,normal,long,trace"` //not implemented
 	UL           *Edns0UL           `json:"ul,omitempty" groups:"short,normal,long,trace"`  //not implemented

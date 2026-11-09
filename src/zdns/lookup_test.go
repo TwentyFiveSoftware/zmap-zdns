@@ -389,8 +389,8 @@ func TestParseAnswer(t *testing.T) {
 	if ednsAnswer.UDPSize != 1232 {
 		t.Errorf("Unexpected EDNS UDP Size. Expected %v, got %v", 0, ednsAnswer.UDPSize)
 	}
-	if ednsAnswer.Flags != "" {
-		t.Errorf("Unexpected EDNS Flags. Expected %v, got %v", 0, ednsAnswer.Flags)
+	if len(ednsAnswer.Flags) != 0 {
+		t.Errorf("Unexpected EDNS Flags. Expected %v, got %v", nil, ednsAnswer.Flags)
 	}
 }
 
@@ -2414,7 +2414,7 @@ func TestCachedLookupEDNSFallback(t *testing.T) {
 			ctx, cancel := context.WithTimeout(context.Background(), 2*time.Second)
 			defer cancel()
 
-			result, _, status, _, err := resolver.cachedLookup(ctx, q, &nameServer, q.Name, 0, true, true, false, nil)
+			result, _, status, _, err := resolver.cachedLookup(ctx, q, &nameServer, q.Name, 0, true, true, false, false, nil)
 
 			require.NoError(t, err)
 			require.Equal(t, tt.expectedStatus, status)

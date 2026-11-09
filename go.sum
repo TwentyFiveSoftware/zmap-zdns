@@ -1,3 +1,5 @@
+github.com/TwentyFiveSoftware/zmap-dns v0.0.0-20261109141428-bd7212e9b26c h1:jo4kq0i9J93FiYeGZLn7FSpbWM9oRVl3rf1v2rHm5kg=
+github.com/TwentyFiveSoftware/zmap-dns v0.0.0-20261109141428-bd7212e9b26c/go.mod h1:KvNgGTPLqb/n14VOHeTItxWRtyPB8n6o160zXsuMI/k=
 github.com/asergeyev/nradix v0.0.0-20170505151046-3872ab85bb56/go.mod h1:8BhOLuqtSuT5NZtZMwfvEibi09RO3u79uqfHZzfDTR4=
 github.com/asergeyev/nradix v0.0.0-20220715161825-e451993e425c h1:cN6WRmhJkh/u5bvf/XXjoqcHxljVKIz3Nt7q2dVJySo=
 github.com/asergeyev/nradix v0.0.0-20220715161825-e451993e425c/go.mod h1:8BhOLuqtSuT5NZtZMwfvEibi09RO3u79uqfHZzfDTR4=
@@ -61,8 +63,6 @@ github.com/stretchr/testify v1.12.1 h1:EuwCh5fleGS7H32xRwO3wRGT7DxrDhLAT6FF8MpWD
 github.com/stretchr/testify v1.12.1/go.mod h1:MDEgiDPPsNp5cuIrHPPCyornHKgEVbtFUmoNlxoYthg=
 github.com/weppos/publicsuffix-go v0.50.3 h1:eT5dcjHQcVDNc0igpFEsGHKIip30feuB2zuuI9eJxiE=
 github.com/weppos/publicsuffix-go v0.50.3/go.mod h1:/rOa781xBykZhHK/I3QeHo92qdDKVmKZKF7s8qAEM/4=
-github.com/zmap/dns v1.1.70 h1:Vh1gNFmPucW0gYPy0sCxBLoHzwUpbxOEIwfq/r78QaE=
-github.com/zmap/dns v1.1.70/go.mod h1:KvNgGTPLqb/n14VOHeTItxWRtyPB8n6o160zXsuMI/k=
 github.com/zmap/go-dns-root-anchors v0.0.0-20250422052150-ed414f41f7c4 h1:lL98zwNey8CMD3DjcXwhB5D860YKBbd0l3X350It8Q8=
 github.com/zmap/go-dns-root-anchors v0.0.0-20250422052150-ed414f41f7c4/go.mod h1:W5CEzaf+B3Pg1hzUQotwQ2EBg7jB49DkmKuiNuWPO80=
 github.com/zmap/go-iptree v0.0.0-20251002010852-e54c27171c72 h1:pF4cy/4QPqNW/XRWa9kIImCAhE2rKc7bj4W1z9/6Nrw=

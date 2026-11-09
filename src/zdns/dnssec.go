@@ -318,7 +318,7 @@ func (v *dNSSECValidator) getDNSKEYs(signerDomain string, trace Trace, depth int
 		RetriesRemaining: &v.r.retriesRemaining,
 	}
 
-	res, trace, status, err := v.r.lookup(v.ctx, &dnskeyQuestion, v.r.rootNameServers, v.isIterative, trace)
+	res, trace, status, err := v.r.lookup(v.ctx, &dnskeyQuestion, v.r.rootNameServers, v.isIterative, v.r.delegationExtensions, trace)
 	if status != StatusNoError {
 		v.r.verboseLog(depth, fmt.Sprintf("DNSSEC: Failed to get DNSKEYs for signer domain %s, query status: %s", signerDomain, status))
 		return nil, nil, trace, fmt.Errorf("DNSKEY fetch failed, query status: %s", status)
@@ -389,7 +389,7 @@ func (v *dNSSECValidator) fetchDSRecords(signerDomain string, trace Trace, depth
 		RetriesRemaining: &v.r.retriesRemaining,
 	}
 
-	res, newTrace, status, err := v.r.lookup(v.ctx, &dsQuestion, v.r.rootNameServers, v.isIterative, trace)
+	res, newTrace, status, err := v.r.lookup(v.ctx, &dsQuestion, v.r.rootNameServers, v.isIterative, v.r.delegationExtensions, trace)
 	trace = newTrace
 	// Empirically, DS records may present in the answer section in some cases
 	res.Authorities = append(res.Authorities, res.Answers...)

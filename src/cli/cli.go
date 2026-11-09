@@ -69,13 +69,14 @@ type GeneralOptions struct {
 
 // QueryOptions affect the fields of the actual DNS queries. Applicable to all modules.
 type QueryOptions struct {
-	AuthenticatedData  bool   `long:"authenticated-data" description:"Sends DNS packets with the AD bit set"`
-	CheckingDisabled   bool   `long:"checking-disabled" description:"Sends DNS packets with the CD bit set"`
-	ClassString        string `long:"class" default:"INET" description:"DNS class to query. Options: INET, CSNET, CHAOS, HESIOD, NONE, ANY."`
-	ClientSubnetString string `long:"client-subnet" description:"Client subnet in CIDR format for EDNS0."`
-	Dnssec             bool   `long:"dnssec" description:"Requests DNSSEC records by setting the DNSSEC OK (DO) bit"`
-	ValidateDNSSEC     bool   `long:"validate-dnssec" description:"Validate DNSSEC records, only applicable with --iterative"`
-	UseNSID            bool   `long:"nsid" description:"Request NSID."`
+	AuthenticatedData    bool   `long:"authenticated-data" description:"Sends DNS packets with the AD bit set"`
+	CheckingDisabled     bool   `long:"checking-disabled" description:"Sends DNS packets with the CD bit set"`
+	ClassString          string `long:"class" default:"INET" description:"DNS class to query. Options: INET, CSNET, CHAOS, HESIOD, NONE, ANY."`
+	ClientSubnetString   string `long:"client-subnet" description:"Client subnet in CIDR format for EDNS0."`
+	Dnssec               bool   `long:"dnssec" description:"Requests DNSSEC records by setting the DNSSEC OK (DO) bit"`
+	ValidateDNSSEC       bool   `long:"validate-dnssec" description:"Validate DNSSEC records, only applicable with --iterative"`
+	UseNSID              bool   `long:"nsid" description:"Request NSID."`
+	DelegationExtensions bool   `long:"delegation-extensions" description:"Signals delegation extensions support by setting the Delegation Extensions (DE) bit"`
 }
 
 // NetworkOptions options for controlling the network behavior. Applicable to all modules.
